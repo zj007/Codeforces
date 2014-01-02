@@ -16,15 +16,15 @@ def igcd(x,y):
 	if y == 0:
 		return x
 	if x < y:
-		return gcd(y,x)
+		return igcd(y,x)
 	else:
 		if x&1 == 0 and y&1 == 0:
-			return 2*gcd(x>>1, y>>1)
+			return 2*igcd(x>>1, y>>1)
 		if x&1 == 0:
-			return gcd(x>>1, y)
+			return igcd(x>>1, y)
 		if y&1 == 0:
-			return gcd(x, y>>1)
-		return gcd(y, x-y)
+			return igcd(x, y>>1)
+		return igcd(y, x-y)
 
 a_num, b_num, stone_num = raw_input().split()
 
